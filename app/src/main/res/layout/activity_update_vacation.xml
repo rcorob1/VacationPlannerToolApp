@@ -39,32 +39,66 @@
         app:layout_constraintTop_toTopOf="@+id/bottomAppBar3"
         app:srcCompat="@android:drawable/ic_menu_save" />
 
-    <TextView
-        android:id="@+id/vacUpdateTempTxt"
-        android:layout_width="204dp"
-        android:layout_height="106dp"
-        android:layout_marginTop="324dp"
-        android:text="A critical error has occured."
-        android:textAlignment="center"
-        android:textSize="24sp"
-        app:layout_constraintBottom_toTopOf="@+id/bottomAppBar3"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0" />
-
     <EditText
         android:id="@+id/updateVacName"
         android:layout_width="266dp"
         android:layout_height="55dp"
-        android:layout_marginBottom="8dp"
+        android:layout_marginTop="28dp"
         android:ems="10"
         android:inputType="text"
         android:text="Vacation Name"
         android:textAlignment="center"
         android:textSize="20sp"
-        app:layout_constraintBottom_toTopOf="@+id/vacUpdateTempTxt"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/updateVacTitleText" />
+
+    <EditText
+        android:id="@+id/updateVacHotel"
+        android:layout_width="266dp"
+        android:layout_height="55dp"
+        android:layout_marginTop="28dp"
+        android:ems="10"
+        android:inputType="text"
+        android:text="Vacation Name"
+        android:textAlignment="center"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/updateVacName" />
+
+    <EditText
+        android:id="@+id/updateStartDate"
+        android:layout_width="266dp"
+        android:layout_height="55dp"
+        android:layout_marginTop="28dp"
+        android:ems="10"
+        android:inputType="date"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/updateVacHotel" />
+
+    <EditText
+        android:id="@+id/updateEndDate"
+        android:layout_width="266dp"
+        android:layout_height="55dp"
+        android:layout_marginTop="28dp"
+        android:ems="10"
+        android:inputType="date"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/updateStartDate" />
+
+    <TextView
+        android:id="@+id/updateVacTitleText"
+        android:layout_width="381dp"
+        android:layout_height="92dp"
+        android:text="Vacation Not Found!"
+        android:textAlignment="center"
+        android:textSize="34sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>

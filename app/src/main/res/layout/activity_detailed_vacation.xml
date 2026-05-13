@@ -8,16 +8,41 @@
     tools:context=".DetailedVacation">
 
     <TextView
+        android:id="@+id/detVacEndField"
+        android:layout_width="143dp"
+        android:layout_height="30dp"
+        android:layout_marginTop="36dp"
+        android:text="End Date"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/textView5"
+        app:layout_constraintTop_toBottomOf="@+id/detVacStartField" />
+
+    <TextView
+        android:id="@+id/textView6"
+        android:layout_width="188dp"
+        android:layout_height="43dp"
+        android:text="Excursions:"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toTopOf="@+id/excListRecView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.331"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
         android:id="@+id/vacTempTextView"
-        android:layout_width="250dp"
-        android:layout_height="108dp"
+        android:layout_width="295dp"
+        android:layout_height="86dp"
         android:text="Detailed View Will Go Here!"
         android:textAlignment="center"
         android:textSize="24sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.008" />
 
     <com.google.android.material.bottomappbar.BottomAppBar
         android:id="@+id/bottomAppBar2"
@@ -69,6 +94,91 @@
         app:layout_constraintBottom_toTopOf="@+id/bottomAppBar2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/vacTempTextView"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="143dp"
+        android:layout_height="30dp"
+        android:layout_marginTop="28dp"
+        android:text="Vacation Name:"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.216"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/vacTempTextView" />
+
+    <TextView
+        android:id="@+id/detVacNameField"
+        android:layout_width="143dp"
+        android:layout_height="30dp"
+        android:layout_marginTop="28dp"
+        android:text="Vacation Name"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/textView2"
+        app:layout_constraintTop_toBottomOf="@+id/vacTempTextView" />
+
+    <TextView
+        android:id="@+id/detVacHotelField"
+        android:layout_width="143dp"
+        android:layout_height="30dp"
+        android:layout_marginTop="36dp"
+        android:text="Hotel Name"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/textView3"
+        app:layout_constraintTop_toBottomOf="@+id/detVacNameField" />
+
+    <TextView
+        android:id="@+id/detVacStartField"
+        android:layout_width="143dp"
+        android:layout_height="30dp"
+        android:layout_marginTop="36dp"
+        android:text="Start Date"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/textView4"
+        app:layout_constraintTop_toBottomOf="@+id/detVacHotelField" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="143dp"
+        android:layout_height="30dp"
+        android:layout_marginTop="36dp"
+        android:text="Hotel Name:"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.216"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView2" />
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="143dp"
+        android:layout_height="30dp"
+        android:layout_marginTop="36dp"
+        android:text="Start Date:"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.216"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView3" />
+
+    <TextView
+        android:id="@+id/textView5"
+        android:layout_width="143dp"
+        android:layout_height="30dp"
+        android:layout_marginTop="36dp"
+        android:text="End Date"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.216"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView4" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

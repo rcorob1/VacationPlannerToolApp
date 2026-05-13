@@ -67,4 +67,40 @@
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView" />
+
+    <EditText
+        android:id="@+id/addVacHotelField"
+        android:layout_width="242dp"
+        android:layout_height="51dp"
+        android:layout_marginTop="12dp"
+        android:ems="10"
+        android:inputType="text"
+        android:text="Name of Hotel"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/addVacNameField" />
+
+    <EditText
+        android:id="@+id/addVacStartDate"
+        android:layout_width="243dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="8dp"
+        android:ems="10"
+        android:inputType="date"
+        android:text="Vacation Start Date"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/addVacHotelField" />
+
+    <EditText
+        android:id="@+id/addVacEndDate"
+        android:layout_width="243dp"
+        android:layout_height="50dp"
+        android:ems="10"
+        android:inputType="date"
+        android:text="Vacation End Date"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.511"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/addVacStartDate" />
 </androidx.constraintlayout.widget.ConstraintLayout>

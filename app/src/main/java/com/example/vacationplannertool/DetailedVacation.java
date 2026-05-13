@@ -22,8 +22,10 @@ import com.example.vacationplannertool.entity.Excursion;
 import com.example.vacationplannertool.entity.Vacation;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 
 public class DetailedVacation extends AppCompatActivity {
     private repository repo;
@@ -88,9 +90,24 @@ public class DetailedVacation extends AppCompatActivity {
                 vacToDisp = vac;
             }
         }
-        String vacName = vacToDisp.getVacName();
-        String tempStr = "Detailed View on " + vacName + " Coming Soon!";
+
+        String tempStr = "Details of Vacation";
         tempTxt.setText(tempStr);
+
+        String vacName = vacToDisp.getVacName();
+        String hotName = vacToDisp.getVacHotel();
+        String staDate = vacToDisp.getVacStartDate();
+        String endDate = vacToDisp.getVacEndDate();
+
+        TextView nam = findViewById(R.id.detVacNameField);
+        TextView hot = findViewById(R.id.detVacHotelField);
+        TextView sta = findViewById(R.id.detVacStartField);
+        TextView end = findViewById(R.id.detVacEndField);
+
+        nam.setText(vacName);
+        hot.setText(hotName);
+        sta.setText(staDate);
+        end.setText(endDate);
 
         RecyclerView recyclerView = findViewById(R.id.excListRecView);
         List<Excursion> excList = repo.getAssocExcursions(vacId);
