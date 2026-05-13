@@ -17,7 +17,11 @@ import com.example.vacationplannertool.database.repository;
 import com.example.vacationplannertool.entity.Vacation;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
+import java.util.List;
+
 public class DetailedVacation extends AppCompatActivity {
+    private repository repo;
+    private int vacId;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,10 +36,12 @@ public class DetailedVacation extends AppCompatActivity {
 
         Intent intent = getIntent();
         String vacName = intent.getStringExtra("name");
-        int vacId = intent.getIntExtra("id", -1);
+        vacId = intent.getIntExtra("id", -1);
         TextView tempTxt = findViewById(R.id.vacTempTextView);
         String tempStr = "Detailed View on " + vacName + " Coming Soon!";
         tempTxt.setText(tempStr);
+
+
         FloatingActionButton addVacFragButton = findViewById(R.id.vacDetailBackBtn);
         addVacFragButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -45,6 +51,8 @@ public class DetailedVacation extends AppCompatActivity {
 
 
         });
+
+
 
         Button vacDetailUpdateBtn = findViewById(R.id.vacDetailUpdateBtn);
         vacDetailUpdateBtn.setOnClickListener(new View.OnClickListener() {
@@ -59,11 +67,13 @@ public class DetailedVacation extends AppCompatActivity {
 
         });
 
+
+
         FloatingActionButton vacDelBtn = findViewById(R.id.vacDetailDelBtn);
         vacDelBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                repository repo = new repository(getApplication());
+                repo = new repository(getApplication());
                 Vacation vacToDelete = new Vacation();
                 for (Vacation vac : repo.getVacations()) {
                     if (vac.getVacId() == vacId) {
@@ -79,6 +89,21 @@ public class DetailedVacation extends AppCompatActivity {
 
 
         });
+    }
+
+    protected void onResume() {
+        super.onResume();
+        TextView tempTxt = findViewById(R.id.vacTempTextView);
+        repo = new repository(getApplication());
+        Vacation vacToDisp = new Vacation();
+        for (Vacation vac : repo.getVacations()) {
+            if (vac.getVacId() == vacId) {
+                vacToDisp = vac;
+            }
+        }
+        String vacName = vacToDisp.getVacName();
+        String tempStr = "Detailed View on " + vacName + " Coming Soon!";
+        tempTxt.setText(tempStr);
     }
 
 }

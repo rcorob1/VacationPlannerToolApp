@@ -32,6 +32,7 @@ public class AddVacationActivity extends AppCompatActivity {
         });
 
 
+
         FloatingActionButton addVacBack = findViewById(R.id.addVacBackBtn);
         addVacBack.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -40,6 +41,7 @@ public class AddVacationActivity extends AppCompatActivity {
             }
 
         });
+
 
         FloatingActionButton addVacSave = findViewById(R.id.addVacSaveBtn);
         addVacSave.setOnClickListener(new View.OnClickListener() {
