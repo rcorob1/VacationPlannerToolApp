@@ -10,9 +10,17 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
+import com.example.vacationplannertool.adapters.vacationAdapter;
+import com.example.vacationplannertool.database.repository;
+import com.example.vacationplannertool.entity.Vacation;
+
+import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
-
+    private repository repo;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -24,8 +32,23 @@ public class MainActivity extends AppCompatActivity {
             return insets;
         });
 
-        Button addVacFragButton = findViewById(R.id.addvacationfragbutton);
 
+
+
+    }
+
+
+    protected void onResume() {
+        super.onResume();
+        RecyclerView recyclerView = findViewById(R.id.vacListRecView);
+        repo = new repository(getApplication());
+        List<Vacation> vacList = repo.getVacations();
+        final vacationAdapter vacAdapter = new vacationAdapter(this);
+        recyclerView.setAdapter(vacAdapter);
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        vacAdapter.setVacs(vacList);
+
+        Button addVacFragButton = findViewById(R.id.addvacationfragbutton);
         addVacFragButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -36,5 +59,4 @@ public class MainActivity extends AppCompatActivity {
 
         });
     }
-
 }

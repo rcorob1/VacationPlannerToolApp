@@ -12,6 +12,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.VacationPlannerTool">
         <activity
+            android:name=".UpdateVacationActivity"
+            android:exported="false" />
+        <activity
+            android:name=".DetailedVacation"
+            android:exported="false" />
+        <activity
             android:name=".AddVacationActivity"
             android:exported="false" />
         <activity
