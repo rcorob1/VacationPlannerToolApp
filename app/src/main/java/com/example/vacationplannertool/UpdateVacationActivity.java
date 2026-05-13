@@ -72,8 +72,20 @@ public class UpdateVacationActivity extends AppCompatActivity {
         EditText updateVacEnd = findViewById(R.id.updateEndDate);
         updateVacEnd.setText(vacEnd);
 
-
-
+        String format = "yyyy/MM/dd";
+        SimpleDateFormat sdf = new SimpleDateFormat(format, Locale.US);
+        try {
+            Date startDate = sdf.parse(vacStart);
+            Date endDate = sdf.parse(vacEnd);
+            if(startDate != null) {
+                calStart.setTime(startDate);
+            }
+            if(endDate != null) {
+                calEnd.setTime(endDate);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
 
 
         FloatingActionButton updateVacBack = findViewById(R.id.updateVacBackBtn);
@@ -107,10 +119,14 @@ public class UpdateVacationActivity extends AppCompatActivity {
                 updatedVac.setVacHotel(newVacHotel);
                 updatedVac.setVacStartDate(newVacStart);
                 updatedVac.setVacEndDate(newVacEnd);
-
-                repo.update(updatedVac);
-                Toast.makeText(UpdateVacationActivity.this, "Updated Vacation Successfully!", Toast.LENGTH_LONG).show();
-                finish();
+                if(calEnd.before(calStart)) {
+                    Toast.makeText(UpdateVacationActivity.this, "End Date must be after Start Date", Toast.LENGTH_LONG).show();
+                }
+                else {
+                    repo.update(updatedVac);
+                    Toast.makeText(UpdateVacationActivity.this, "Updated Vacation Successfully!", Toast.LENGTH_LONG).show();
+                    finish();
+                }
             }
 
         });

@@ -81,10 +81,14 @@ public class AddVacationActivity extends AppCompatActivity {
                 newVac.setVacEndDate(vacEndDate);
                 newVac.setVacId(0);
 
-                repo.insert(newVac);
-                Toast.makeText(AddVacationActivity.this, "Vacation created successfully", Toast.LENGTH_LONG).show();
-                finish();
-
+                if(calEnd.before(calStart)) {
+                    Toast.makeText(AddVacationActivity.this, "End Date must be after Start Date", Toast.LENGTH_LONG).show();
+                }
+                else {
+                    repo.insert(newVac);
+                    Toast.makeText(AddVacationActivity.this, "Vacation created successfully", Toast.LENGTH_LONG).show();
+                    finish();
+                }
             }
 
         });
