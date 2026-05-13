@@ -62,4 +62,13 @@
         app:layout_constraintTop_toTopOf="@+id/bottomAppBar2"
         app:srcCompat="@android:drawable/ic_menu_delete" />
 
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/excListRecView"
+        android:layout_width="263dp"
+        android:layout_height="183dp"
+        app:layout_constraintBottom_toTopOf="@+id/bottomAppBar2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/vacTempTextView" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

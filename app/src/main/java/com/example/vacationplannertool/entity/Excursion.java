@@ -7,7 +7,7 @@ import androidx.room.PrimaryKey;
 public class Excursion {
     @PrimaryKey(autoGenerate = true)
     private int excId;
-    //private String excName;
+    private String excName;
     //private float price;
     private int vacId;
     //private String excDate;
@@ -18,6 +18,12 @@ public class Excursion {
 
     public void setExcId(int excId) {
         this.excId = excId;
+    }
+
+    public String getExcName() { return excName; }
+
+    public void setExcName(String excName) {
+        this.excName = excName;
     }
 
     public int getVacId() {

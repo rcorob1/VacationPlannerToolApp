@@ -12,11 +12,17 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.vacationplannertool.adapters.excursionAdapter;
+import com.example.vacationplannertool.adapters.vacationAdapter;
 import com.example.vacationplannertool.database.repository;
+import com.example.vacationplannertool.entity.Excursion;
 import com.example.vacationplannertool.entity.Vacation;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class DetailedVacation extends AppCompatActivity {
@@ -42,8 +48,8 @@ public class DetailedVacation extends AppCompatActivity {
         tempTxt.setText(tempStr);
 
 
-        FloatingActionButton addVacFragButton = findViewById(R.id.vacDetailBackBtn);
-        addVacFragButton.setOnClickListener(new View.OnClickListener() {
+        FloatingActionButton addVacBacButton = findViewById(R.id.vacDetailBackBtn);
+        addVacBacButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 finish();
@@ -69,26 +75,7 @@ public class DetailedVacation extends AppCompatActivity {
 
 
 
-        FloatingActionButton vacDelBtn = findViewById(R.id.vacDetailDelBtn);
-        vacDelBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                repo = new repository(getApplication());
-                Vacation vacToDelete = new Vacation();
-                for (Vacation vac : repo.getVacations()) {
-                    if (vac.getVacId() == vacId) {
-                        vacToDelete = vac;
-                    }
-                }
 
-                repo.delete(vacToDelete);
-
-                Toast.makeText(DetailedVacation.this, "Vacation deleted successfully", Toast.LENGTH_LONG).show();
-                finish();
-            }
-
-
-        });
     }
 
     protected void onResume() {
@@ -104,6 +91,40 @@ public class DetailedVacation extends AppCompatActivity {
         String vacName = vacToDisp.getVacName();
         String tempStr = "Detailed View on " + vacName + " Coming Soon!";
         tempTxt.setText(tempStr);
+
+        RecyclerView recyclerView = findViewById(R.id.excListRecView);
+        List<Excursion> excList = repo.getAssocExcursions(vacId);
+        final excursionAdapter excAdapter = new excursionAdapter(this);
+        recyclerView.setAdapter(excAdapter);
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        excAdapter.setExcs(excList);
+
+        FloatingActionButton vacDelBtn = findViewById(R.id.vacDetailDelBtn);
+        vacDelBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                repo = new repository(getApplication());
+                Vacation vacToDelete = new Vacation();
+                List<Excursion> assocExcs = new ArrayList<>();
+                for (Vacation vac : repo.getVacations()) {
+                    if (vac.getVacId() == vacId) {
+                        assocExcs = repo.getAssocExcursions(vacId);
+                        vacToDelete = vac;
+                    }
+                }
+                if(assocExcs.isEmpty()) {
+                    repo.delete(vacToDelete);
+
+                    Toast.makeText(DetailedVacation.this, "Vacation deleted successfully", Toast.LENGTH_LONG).show();
+                    finish();
+                }
+                else {
+                    Toast.makeText(DetailedVacation.this, "Vacation could not be deleted", Toast.LENGTH_LONG).show();
+                }
+            }
+
+
+        });
     }
 
 }

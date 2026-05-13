@@ -15,6 +15,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.vacationplannertool.adapters.vacationAdapter;
 import com.example.vacationplannertool.database.repository;
+import com.example.vacationplannertool.entity.Excursion;
 import com.example.vacationplannertool.entity.Vacation;
 
 import java.util.List;
