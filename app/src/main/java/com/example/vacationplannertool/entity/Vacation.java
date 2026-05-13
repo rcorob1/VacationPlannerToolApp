@@ -9,6 +9,9 @@ public class Vacation {
 
     private int vacId;
     private String vacName;
+    private String vacStartDate;
+    private String vacEndDate;
+    private String vacHotel;
 
     public int getVacId() {
         return vacId;
@@ -24,5 +27,29 @@ public class Vacation {
 
     public void setVacName(String vacName) {
         this.vacName = vacName;
+    }
+
+    public String getVacStartDate() {
+        return vacStartDate;
+    }
+
+    public void setVacStartDate(String vacStartDate) {
+        this.vacStartDate = vacStartDate;
+    }
+
+    public String getVacEndDate() {
+        return vacEndDate;
+    }
+
+    public void setVacEndDate(String vacEndDate) {
+        this.vacEndDate = vacEndDate;
+    }
+
+    public String getVacHotel() {
+        return vacHotel;
+    }
+
+    public void setVacHotel(String vacHotel) {
+        this.vacHotel = vacHotel;
     }
 }
