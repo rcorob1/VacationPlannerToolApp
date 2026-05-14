@@ -26,9 +26,6 @@ public class MyNotificationReceiver extends BroadcastReceiver {
     public void onReceive(Context context, Intent intent) {
         String msg = intent.getStringExtra("msg");
 
-
-
-
         NotificationManager notificationManager = context.getSystemService(NotificationManager.class);
         NotificationChannel channel = new NotificationChannel("vptChannel", "Vacation Alert", NotificationManager.IMPORTANCE_HIGH);
         channel.setDescription("Alerts for scheduled vacations");

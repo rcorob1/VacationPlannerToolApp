@@ -1,6 +1,9 @@
 package com.example.vacationplannertool;
 
+import android.app.AlarmManager;
 import android.app.DatePickerDialog;
+import android.app.PendingIntent;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.CheckBox;
@@ -97,6 +100,26 @@ public class AddExcursionActivity extends AppCompatActivity {
                     newExc.setExcId(0);
                     repo.insert(newExc);
                     Toast.makeText(AddExcursionActivity.this, "Excursion created successfully", Toast.LENGTH_LONG).show();
+                    if(excNotiBox.isChecked()) {
+                        String exnMsg = excNewName + " excursion takes place today!";
+                        Intent exnIntent = new Intent(AddExcursionActivity.this, MyNotificationReceiver.class);
+                        exnIntent.putExtra("msg", exnMsg);
+
+                        PendingIntent pendingIntent = PendingIntent.getBroadcast(
+                                AddExcursionActivity.this,
+                                (int) System.currentTimeMillis(),
+                                exnIntent,
+                                PendingIntent.FLAG_IMMUTABLE
+                        );
+
+                        AlarmManager alarMan = (AlarmManager) getSystemService(ALARM_SERVICE);
+                        if(alarMan != null) {
+                            alarMan.set(AlarmManager.RTC_WAKEUP, newDate.getTime(), pendingIntent);
+                        }
+                        else {
+                            Toast.makeText(AddExcursionActivity.this, "Could not generate push notification", Toast.LENGTH_LONG).show();
+                        }
+                    }
                     finish();
                 }
             }
