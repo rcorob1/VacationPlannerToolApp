@@ -11,7 +11,7 @@ import com.example.vacationplannertool.dao.vacationDao;
 import com.example.vacationplannertool.entity.Excursion;
 import com.example.vacationplannertool.entity.Vacation;
 
-@Database(entities = {Vacation.class, Excursion.class}, version = 8, exportSchema = false)
+@Database(entities = {Vacation.class, Excursion.class}, version = 9, exportSchema = false)
 public abstract class vacationDatabaseBuilder extends RoomDatabase {
     public abstract vacationDao vDao();
     public abstract excursionDao eDao();

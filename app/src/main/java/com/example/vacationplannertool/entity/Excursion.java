@@ -8,9 +8,8 @@ public class Excursion {
     @PrimaryKey(autoGenerate = true)
     private int excId;
     private String excName;
-    //private float price;
     private int vacId;
-    //private String excDate;
+    private String excDate;
 
     public int getExcId() {
         return excId;
@@ -33,6 +32,10 @@ public class Excursion {
     public void setVacId(int vacId) {
         this.vacId = vacId;
     }
+
+    public String getExcDate() { return excDate; }
+
+    public void setExcDate(String excDate) { this.excDate = excDate; }
 
 
 }
