@@ -104,7 +104,7 @@ public class DetailedExcursion extends AppCompatActivity {
 
         });
 
-        FloatingActionButton addExcBacBtn = findViewById(R.id.addExcBackBtn);
+        FloatingActionButton addExcBacBtn = findViewById(R.id.excBackBtn);
         addExcBacBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -113,7 +113,7 @@ public class DetailedExcursion extends AppCompatActivity {
 
         });
 
-        FloatingActionButton saveBtn = findViewById(R.id.addExcSaveBtn);
+        FloatingActionButton saveBtn = findViewById(R.id.excSaveBtn);
         saveBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -151,6 +151,8 @@ public class DetailedExcursion extends AppCompatActivity {
                     currentExc.setExcName(excNewName);
                     currentExc.setExcDate(excNewDate);
                     repo.update(currentExc);
+                    Toast.makeText(DetailedExcursion.this, "Excursion updated successfully!", Toast.LENGTH_LONG).show();
+                    finish();
                 }
 
 
