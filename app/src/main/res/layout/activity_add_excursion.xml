@@ -68,4 +68,32 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/addExcTitleText" />
 
+    <EditText
+        android:id="@+id/addExcDateField"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="428dp"
+        android:ems="10"
+        android:inputType="text"
+        android:text="Date"
+        app:layout_constraintBottom_toTopOf="@+id/bottomAppBar5"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.502"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/updExcNameField"
+        app:layout_constraintVertical_bias="0.902" />
+
+    <CheckBox
+        android:id="@+id/addExcCheckBox"
+        android:layout_width="208dp"
+        android:layout_height="53dp"
+        android:layout_marginTop="44dp"
+        android:text="Enable Push Notification?"
+        app:layout_constraintBottom_toTopOf="@+id/bottomAppBar5"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/addExcDateField"
+        app:layout_constraintVertical_bias="0.0" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
