@@ -75,7 +75,7 @@ public class DetailedExcursion extends AppCompatActivity {
 
         });
 
-        FloatingActionButton addExcBacBtn = findViewById(R.id.excBackBtn);
+        FloatingActionButton addExcBacBtn = findViewById(R.id.addExcBackBtn);
         addExcBacBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

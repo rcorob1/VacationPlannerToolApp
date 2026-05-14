@@ -16,16 +16,13 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.vacationplannertool.adapters.excursionAdapter;
-import com.example.vacationplannertool.adapters.vacationAdapter;
 import com.example.vacationplannertool.database.repository;
 import com.example.vacationplannertool.entity.Excursion;
 import com.example.vacationplannertool.entity.Vacation;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Locale;
 
 public class DetailedVacation extends AppCompatActivity {
     private repository repo;
@@ -56,8 +53,6 @@ public class DetailedVacation extends AppCompatActivity {
             public void onClick(View view) {
                 finish();
             }
-
-
         });
 
 
@@ -109,7 +104,7 @@ public class DetailedVacation extends AppCompatActivity {
         sta.setText(staDate);
         end.setText(endDate);
 
-        RecyclerView recyclerView = findViewById(R.id.excListRecView);
+        RecyclerView recyclerView = findViewById(R.id.addVacExcListRecView);
         List<Excursion> excList = repo.getAssocExcursions(vacId);
         final excursionAdapter excAdapter = new excursionAdapter(this);
         recyclerView.setAdapter(excAdapter);
@@ -138,6 +133,19 @@ public class DetailedVacation extends AppCompatActivity {
                 else {
                     Toast.makeText(DetailedVacation.this, "Vacation could not be deleted", Toast.LENGTH_LONG).show();
                 }
+            }
+
+
+        });
+
+        Button addExcBtn = findViewById(R.id.detVacAddExcBtn);
+        addExcBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                Intent intent = new Intent(DetailedVacation.this, AddExcursionActivity.class);
+                intent.putExtra("vacId", vacId);
+                startActivity(intent);
             }
 
 

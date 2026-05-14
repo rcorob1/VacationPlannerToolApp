@@ -13,10 +13,14 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.VacationPlannerTool">
+        <activity
+            android:name=".AddExcursionActivity"
+            android:exported="false" />
+
         <receiver
             android:name=".MyNotificationReceiver"
             android:enabled="true"
-            android:exported="true"></receiver>
+            android:exported="true" />
 
         <activity
             android:name=".DetailedExcursion"
