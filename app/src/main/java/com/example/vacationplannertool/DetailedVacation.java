@@ -142,6 +142,45 @@ public class DetailedVacation extends AppCompatActivity {
 
 
         });
+
+        FloatingActionButton vacShareBtn = findViewById(R.id.detVacShareButton);
+        vacShareBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                repo = new repository(getApplication());
+                Vacation vacToShare = new Vacation();
+                List<Excursion> assocExcs = new ArrayList<>();
+                for (Vacation vac : repo.getVacations()) {
+                    if (vac.getVacId() == vacId) {
+                        assocExcs = repo.getAssocExcursions(vacId);
+                        vacToShare = vac;
+                    }
+                }
+
+                StringBuilder shareMsg = new StringBuilder();
+                shareMsg.append(String.format("Vacation Name: %s\n", vacToShare.getVacName()));
+                shareMsg.append(String.format("Vacation Hotel Name: %s\n", vacToShare.getVacHotel()));
+                shareMsg.append(String.format("Vacation Start Date: %s\n", vacToShare.getVacStartDate()));
+                shareMsg.append(String.format("Vacation End Date: %s\n", vacToShare.getVacEndDate()));
+
+                if(!(assocExcs.isEmpty())) {
+                    shareMsg.append("\n");
+                    for(Excursion exc : assocExcs) {
+                        shareMsg.append(String.format("Excursion: %s\n", exc.getExcName()));
+                        //TODO: Add excursion date
+                    }
+                }
+
+                Intent shareIntent = new Intent(Intent.ACTION_SEND);
+                shareIntent.setType("text/plain");
+                shareIntent.putExtra(Intent.EXTRA_TEXT, shareMsg.toString());
+                startActivity(Intent.createChooser(shareIntent, "Share vacation details to: "));
+            }
+
+
+        });
+
+
     }
 
 }

@@ -68,13 +68,15 @@
 
     <Button
         android:id="@+id/vacDetailUpdateBtn"
-        android:layout_width="161dp"
+        android:layout_width="135dp"
         android:layout_height="56dp"
         android:text="Update Vacation Details"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/bottomAppBar2"
+        app:layout_constraintHorizontal_bias="0.354"
         app:layout_constraintStart_toStartOf="@+id/bottomAppBar2"
-        app:layout_constraintTop_toTopOf="@+id/bottomAppBar2" />
+        app:layout_constraintTop_toTopOf="@+id/bottomAppBar2"
+        app:layout_constraintVertical_bias="0.541" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/vacDetailDelBtn"
@@ -83,8 +85,9 @@
         android:clickable="true"
         app:layout_constraintBottom_toBottomOf="@+id/bottomAppBar2"
         app:layout_constraintEnd_toEndOf="@+id/bottomAppBar2"
-        app:layout_constraintStart_toEndOf="@+id/vacDetailUpdateBtn"
+        app:layout_constraintStart_toEndOf="@+id/detVacShareButton"
         app:layout_constraintTop_toTopOf="@+id/bottomAppBar2"
+        app:layout_constraintVertical_bias="0.541"
         app:srcCompat="@android:drawable/ic_menu_delete" />
 
     <androidx.recyclerview.widget.RecyclerView
@@ -180,5 +183,17 @@
         app:layout_constraintHorizontal_bias="0.216"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView4" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/detVacShareButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:clickable="true"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/bottomAppBar2"
+        app:layout_constraintHorizontal_bias="0.247"
+        app:layout_constraintStart_toEndOf="@+id/vacDetailUpdateBtn"
+        app:layout_constraintTop_toTopOf="@+id/bottomAppBar2"
+        app:srcCompat="@android:drawable/ic_menu_share" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
