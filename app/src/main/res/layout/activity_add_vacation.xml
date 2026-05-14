@@ -103,4 +103,13 @@
         app:layout_constraintHorizontal_bias="0.511"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/addVacStartDate" />
+
+    <CheckBox
+        android:id="@+id/notiCheckbox"
+        android:layout_width="242dp"
+        android:layout_height="46dp"
+        android:text="Enable Notifications for Start/End Date?"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/addVacEndDate" />
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,10 +1,14 @@
 package com.example.vacationplannertool;
 
+import android.app.AlarmManager;
 import android.app.DatePickerDialog;
+import android.app.PendingIntent;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -86,7 +90,49 @@ public class AddVacationActivity extends AppCompatActivity {
                 }
                 else {
                     repo.insert(newVac);
-                    Toast.makeText(AddVacationActivity.this, "Vacation created successfully", Toast.LENGTH_LONG).show();
+
+                    CheckBox notiBox = findViewById(R.id.notiCheckbox);
+                    if(notiBox.isChecked()) {
+                        Date snDate = null;
+                        Date enDate = null;
+                        try {
+                            snDate = sdf.parse(vacStartDate);
+                            enDate = sdf.parse(vacEndDate);
+                        } catch(Exception e) {
+                            e.printStackTrace();
+                        }
+                        String snMsg = newVacName + " vacation begins today!";
+                        Intent snIntent = new Intent(AddVacationActivity.this, MyNotificationReceiver.class);
+                        snIntent.putExtra("msg", snMsg);
+
+                        PendingIntent pendingIntent = PendingIntent.getBroadcast(
+                                AddVacationActivity.this,
+                                (int) System.currentTimeMillis(),
+                                snIntent,
+                                PendingIntent.FLAG_IMMUTABLE
+                        );
+
+                        String enMsg = newVacName + " vacation ends today!";
+                        Intent enIntent = new Intent(AddVacationActivity.this, MyNotificationReceiver.class);
+                        enIntent.putExtra("msg", enMsg);
+
+                        PendingIntent pendingIntent2 = PendingIntent.getBroadcast(
+                                AddVacationActivity.this,
+                                (int) System.currentTimeMillis(),
+                                enIntent,
+                                PendingIntent.FLAG_IMMUTABLE
+                        );
+
+                        AlarmManager alarMan = (AlarmManager) getSystemService(ALARM_SERVICE);
+                        if (alarMan != null && snDate != null && enDate != null) {
+
+                            alarMan.set(AlarmManager.RTC_WAKEUP, snDate.getTime(), pendingIntent);
+                            alarMan.set(AlarmManager.RTC_WAKEUP, enDate.getTime(), pendingIntent2);
+                        }
+                        else {
+                            Toast.makeText(AddVacationActivity.this, "Could not generate push notifications", Toast.LENGTH_LONG).show();
+                        }
+                    }
                     finish();
                 }
             }
