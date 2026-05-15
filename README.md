@@ -1,28 +1,18 @@
-<strong> **DO NOT DISTRIBUTE OR PUBLICLY POST SOLUTIONS TO THESE LABS. MAKE ALL FORKS OF THIS REPOSITORY WITH SOLUTION CODE PRIVATE. PLEASE REFER TO THE STUDENT CODE OF CONDUCT AND ETHICAL EXPECTATIONS FOR COLLEGE OF INFORMATION TECHNOLOGY STUDENTS FOR SPECIFICS. ** </strong>
+# WGU D308 - Vacation Planner Tool 
+## Title and Purpose
+The title of this project application is the Vacation Planner Tool. The purpose of the application is to allow users to create, modify and delete vacations, as well as create,
+modify and delete excursions inside of vacations. Additionally, the application can be used to create push notifications for the start date and end date of vacations, as well as
+the date of excursions.
 
-# WESTERN GOVERNORS UNIVERSITY 
-## D308 – MOBILE APPLICATION DEVELOPMENT (ANDROID)
-Welcome to Mobile Application Development (Android)! This is an opportunity for students to create page layouts with clean navigation, design mobile application infrastructure and user interfaces, develop secure database-backed mobile applications in an object-oriented language, document solutions for application requirements with storyboards and emulators, articulate challenges in the development process, and describe alternatives methods in overcoming mobile application development problems. 
 
-FOR SPECIFIC TASK INSTRUCTIONS AND REQUIREMENTS FOR THIS ASSESSMENT, PLEASE REFER TO THE COURSE PAGE.
-## BASIC INSTRUCTIONS
-For this assessment, you have an opportunity to test your competency as a mobile application developer. Your understanding of mobile application structure and design will help you to develop applications to meet customer requirements. This task will allow you to demonstrate your ability to apply the skills learned in the course.
 
-## SUPPLEMENTAL RESOURCES 
-1.	How to clone a project to Android Studio using Git?
+## Instructions for Ensuring all Requirements are Met
+From the Main Menu, press Create New Vacation and enter information for the vacation. Enable notifications for the vacation, and optionally set the end date to a date before the start date to verify input checking and once chronologically correct dates have been entered, press the Save Button. Back on the main menu, press the name of the new Vacation, which will take you to the Vacation Detailed View.Ensure all vacation information is displayed correctly, then press the Update Vacation button. Enter new information, and once again validate Date Input Correction, and press the Save button. Once again on the Vacation Detailed View, press the Add Excursion button, and enter information for an excursion. Verify that the date must be within the bounds of the vacation dates, enable notifications, and press save. From the Detailed Vacation View, press the name of the excursion, update its information, and press save. Press the Share button to ensure all data populates correctly. On the Vacation Detailed View, press the delete button to verify that vacations with existing excursions cannot be deleted. Press the existing excursion, then press the delete button to verify excursions can be deleted, and press delete on the vacation to verify that vacations with no excursions can be deleted.
 
-> Ensure that Android Studio and Git are installed on your system.  New Project, Get from VCS button or the File/New/Project from Version Control. This will open a window  with a prompt to clone the project. Save it in a safe location for the directory and press clone. IntelliJ will prompt you for your credentials. Enter in your WGU Credentials and the project will be cloned onto your local machine.
 
-2. How to create a branch and start Development?
+## Versioning
+This project's signed APK was deployed for Android versions 8.0 and newer and SDK version 26 and above, with a target SDK version of 36.
 
-- GitLab method
-> Press the '+' button located near your branch name. In the dropdown list, press the 'New branch' button. This will allow you to create a name for your branch. Once the branch has been named, you can select 'Create Branch' to push the branch to your repository.
 
-- Android Studio method
-> In Android Studio, Go to the 'Git' button on the top toolbar. Select the new branch option and create a name for the branch. Make sure checkout branch is selected and press create. You can now add a commit message and push the new branch to the local repo.
-
-## SUPPORT
-If you need additional support, please navigate to the course page and reach out to your course instructor.
-## FUTURE USE
-Take this opportunity to create or add to a simple resume portfolio to highlight and showcase your work for future use in career search, experience, and education!
-
+## Git Repository
+The Project GitLab Repository can be accessed via https://gitlab.com/wgu-gitlab-environment/student-repos/rcorob/d308-mobile-application-development-android/-/tree/working?ref_type=heads
