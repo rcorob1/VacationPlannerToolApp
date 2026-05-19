@@ -1,0 +1,1 @@
+To install the Vacation Planner Tool application, download the signed release.apk file found in the /release/ directory to your android device, and once on your Android device, use the Files app to select the APK file which will prompt you to install the application. Select Yes to install the application, and it will be installed to your device.
