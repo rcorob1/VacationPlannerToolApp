@@ -2,6 +2,7 @@ package com.example.vacationplannertool;
 
 import android.content.Context;
 
+import androidx.test.core.app.ApplicationProvider;
 import androidx.test.platform.app.InstrumentationRegistry;
 import androidx.test.ext.junit.runners.AndroidJUnit4;
 
@@ -9,6 +10,11 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 
 import static org.junit.Assert.*;
+
+import com.example.vacationplannertool.database.repository;
+import com.example.vacationplannertool.entity.Vacation;
+
+import java.util.List;
 
 /**
  * Instrumented test, which will execute on an Android device.
@@ -23,4 +29,5 @@ public class ExampleInstrumentedTest {
         Context appContext = InstrumentationRegistry.getInstrumentation().getTargetContext();
         assertEquals("com.example.vacationplannertool", appContext.getPackageName());
     }
+
 }
