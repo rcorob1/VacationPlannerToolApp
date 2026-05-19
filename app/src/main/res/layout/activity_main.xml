@@ -22,23 +22,44 @@
     <Button
         android:id="@+id/addvacationfragbutton"
         android:layout_width="197dp"
-        android:layout_height="53dp"
+        android:layout_height="47dp"
+        android:layout_marginStart="4dp"
         android:alpha="1999"
         android:rotation="0"
         android:text="Create New Vacation"
         android:visibility="visible"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/genReportButton"
+        android:layout_width="197dp"
+        android:layout_height="47dp"
+        android:layout_marginEnd="4dp"
+        android:alpha="1999"
+        android:rotation="0"
+        android:text="Generate Report"
+        android:visibility="visible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/vacListRecView"
-        android:layout_width="409dp"
-        android:layout_height="624dp"
-        android:layout_marginTop="1dp"
+        android:layout_width="402dp"
+        android:layout_height="573dp"
         app:layout_constraintBottom_toTopOf="@+id/addvacationfragbutton"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <SearchView
+        android:id="@+id/vacSearchView"
+        android:layout_width="409dp"
+        android:layout_height="52dp"
+        android:layout_marginTop="52dp"
+        android:layout_marginBottom="1dp"
+        app:layout_constraintBottom_toTopOf="@+id/vacListRecView"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/titletext" />
+        app:layout_constraintTop_toTopOf="@+id/titletext" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -7,6 +7,7 @@ import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.SearchView;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -23,9 +24,11 @@ import com.example.vacationplannertool.database.repository;
 import com.example.vacationplannertool.entity.Excursion;
 import com.example.vacationplannertool.entity.Vacation;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
+    List<Vacation> filteredVacs;
     private repository repo;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -59,11 +62,46 @@ public class MainActivity extends AppCompatActivity {
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         vacAdapter.setVacs(vacList);
 
+        SearchView searchView = findViewById(R.id.vacSearchView);
+        searchView.setIconifiedByDefault(false);
+        searchView.setQuery("", false);
+        searchView.clearFocus();
+        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+        @Override
+        public boolean onQueryTextSubmit(String query) {
+            return false;
+        }
+
+        @Override
+        public boolean onQueryTextChange(String newText) {
+            filteredVacs = new ArrayList<Vacation>();
+            for(Vacation vac : vacList) {
+                if(vac.getVacName().toLowerCase().contains(newText.toLowerCase())) {
+                    filteredVacs.add(vac);
+                }
+            }
+            vacAdapter.setVacs(filteredVacs);
+            return true;
+        }
+        });
+
+
         Button addVacFragButton = findViewById(R.id.addvacationfragbutton);
         addVacFragButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(MainActivity.this, AddVacationActivity.class);
+                startActivity(intent);
+            }
+
+
+        });
+
+        Button genRepBtn = findViewById(R.id.genReportButton);
+        genRepBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MainActivity.this, VacReportActivity.class);
                 startActivity(intent);
             }
 
